@@ -74,6 +74,14 @@ services:
     environment:
      - LOGSTASH_PIPELINE=gerrit
 
+  spark:
+    image: gerritforge/jw2017-spark
+    entrypoint: sleep 3650d
+    volumes:
+     - logstash-output:/var/output
+    networks:
+     - local-network
+
 networks:
     local-network:
         driver: bridge
